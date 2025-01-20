@@ -1,6 +1,6 @@
 function jsonOutput(targetDiv) {
   //const jsonFilePath = "output.json";
-  const jsonFilePath = "https://ososhiki.kinpoudou.co.jp/backlink/output.json"; // 絶対URLを指定
+  const jsonFilePath = "./output.json"; // 絶対URLを指定
 
 
   // data属性からbrandとprefを取得
