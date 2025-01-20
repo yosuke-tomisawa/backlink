@@ -1,0 +1,90 @@
+@charset "UTF-8";
+@import "_config.scss";
+
+
+/* コモン
+========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  color: #555;
+  background: #fff;
+  line-height: 1.5;
+  font-family: "メイリオ", Meiryo, "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "ＭＳ Ｐゴシック", "Lucida Grande", "Lucida Sans Unicode", Arial, Verdana, sans-serif; // ショップサーブフォント初期値
+  font-feature-settings: "palt";
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+a:link, a:hover, a:visited {
+	color: #222;
+}
+
+/* 共通パーツ設定
+========================================================================== */
+.wrap {
+  max-width: 960px;
+  min-width: 960px;
+  margin: 0 auto;
+}
+
+.pc_block,
+.pc__block {
+  display: block;
+}
+
+.sp_block,
+.sp__block {
+  display: none;
+}
+
+.pc_inline,
+.pc__inline {
+  display: inline;
+}
+
+.sp_inline,
+.sp__inline {
+  display: none;
+}
+
+
+// PCなら電話番号をリンクさせない
+.tel-tap {
+	cursor: default;
+	pointer-events: none;
+}
+
+/* 被リンクを増やそう 250120
+========================================================================== */
+.test-test {
+  color: #f00;
+}
+
+
+.check-pc {
+  display: block;
+}
+
+.p-parts {
+
+  &__title {
+    font-size: 20px;
+    color: #f0f;
+  }
+}

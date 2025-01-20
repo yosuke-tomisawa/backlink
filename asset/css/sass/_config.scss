@@ -1,0 +1,178 @@
+@charset "UTF-8";
+
+/* 小さな森の家 Base
+========================================================================== */
+
+/**************************************/
+// variable
+
+/**************************************/
+// フォントサイズ1px=1remで指定、html:font-size:62.5%と必ずセット
+
+@mixin fontsize($size: 24, $base: 10) {
+  font-size: $size + px;
+  font-size: ($size / $base) * 1rem;
+}
+
+// 第一引数で基準となる画面幅のフォントサイズ、第二引数で基準となる画面幅を入力
+@function get_vw($size, $viewport: 375) {
+  $rate: calc(100 / $viewport);
+  @return $rate * $size * 1vw;
+}
+
+@mixin fz_vw($font_size: 10) {
+  font-size: $font_size * 1px;
+  font-size: get_vw($font_size);
+}
+
+@function pxtovw($num, $width: 375) {
+  @return (1vw * $num / $width * 100);
+}
+
+// IE対策
+@mixin ie {
+  @media screen and (-ms-high-contrast: active),
+    screen and (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
+/**************************************/
+//
+@mixin shadow {
+  box-shadow: 0px 2px 40px rgba(0, 0, 0, 0.08);
+}
+
+@mixin txt {
+  text-align: justify;
+}
+
+/**************************************/
+//ブレークポイントの設定
+
+$pc: 768px; // 768px以上はPC
+$sp: 767px; // 767px以下はスマホ
+
+@mixin pc {
+  @media (min-width: ($pc)) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+@mixin pc-dsp {
+  display: none;
+
+  @include pc() {
+    display: block;
+  }
+}
+
+@mixin sp-dsp {
+  display: block;
+
+  @include pc() {
+    display: none;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: 960px) {
+    @content;
+  }
+}
+
+@mixin mv-pad {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+//カラー定義
+/**************************************/
+
+// ブランドカラー
+$kinpou: #448992; // 金宝堂ブランドカラー
+$mori: #008941; // 小さな森の家ブランドカラー
+$morinoie: #008941; // 小さな森の家ブランドカラー
+$senwa: #008941; // 仙和ブランドカラー
+$kanakura: #e73962; // カナクラブランドカラー
+$tomoka: #193b87; // ともかブランドカラー
+
+$brand_color: (
+  "morinoie": $mori,
+  "senwa": $senwa,
+  "kanakura": $kanakura,
+  "tomoka": $tomoka,
+  "hirobutsu": $tomoka,
+);
+$brand_lightenColor: (
+  "morinoie": #eef6f6,
+  "senwa": #eef6f6,
+  "kanakura": lighten($kanakura, 40%),
+  "tomoka": lighten($tomoka, 65%),
+  "hirobutsu": lighten($tomoka, 65%),
+);
+// テキストカラー
+$mori-txt: #008941; // 小さな森の家 アクセントカラー
+
+// プランカラー
+$kasoh: #16a085; // 火葬式カラー
+$koei: #2980b9; // 公営斎場カラー
+$kazoku: #34495e; // 家族葬カラー
+$ippan: #57345e; // 一般葬カラー
+
+$chokusoh: #73582c;
+$kasoh: #9f7738;
+$menkaiKasoh: #c69546;
+$ichinichi: #40a0a4;
+$kazoku: #a5527d;
+$ippan: #625d95;
+$fukushi: #6c0286;
+
+$planColors: (
+  "chokusoh": $chokusoh,
+  "kasoh": $kasoh,
+  "menkaiKasoh": $menkaiKasoh,
+  "menkai-kasoh": $menkaiKasoh,
+  "ichinichi": $ichinichi,
+  "kazoku": $kazoku,
+  "ippan": $ippan,
+  "fukushi": $fukushi,
+);
+
+$k_chokuso: #af0a52;
+$k_sKasoh: #31b08f;
+$k_oKasoh: #19358f;
+$k_fukushi: #e45703;
+$kasohPlan: (
+  k_sKasoh: (
+    #31b08f,
+  ),
+  k_oKasoh: (
+    #19358f,
+  ),
+  k_fukushi: (
+    #e45703,
+  ),
+);
+
+$kasoh-txt: #16a085; // 火葬式テキストカラー
+$koei-txt: #2980b9; // 公営斎場テキストカラー
+$kazoku-txt: #396189; // 家族葬テキストカラー これだけブランドカラーとは異なります
+$ippan-txt: #57345e; // 一般葬テキストカラー
+
+$kasoh-line: #cae3cc; // 火葬式ラインカラー
+$koei-line: #cadae3; // 公営斎場ラインカラー
+$kazoku-line: #cad7e3; // 家族葬ラインカラー
+$ippan-line: #d6cae3; // 一般葬ラインカラー
+
+$kasoh-bg: #fcfdfc; // 火葬式背景カラー
+$koei-bg: #fcfdfd; // 公営斎場背景カラー
+$kazoku-bg: #fafbfc; // 家族葬背景カラー
+$ippan-bg: #fcfafc; // 一般葬背景カラー
