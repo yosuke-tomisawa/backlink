@@ -1,7 +1,7 @@
 function jsonOutput(targetDiv) {
   //const jsonFilePath = "output.json";
-  const jsonFilePath = "./output.json"; // 絶対URLを指定
-
+  const jsonFilePath =
+    "https://yosuke-tomisawa.github.io/backlink//output.json"; // 絶対URLを指定
 
   // data属性からbrandとprefを取得
   const brand = targetDiv.dataset.brand;
